@@ -1,0 +1,55 @@
+<div class="mat-elevation-z8 data-table">
+  <mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="ponedeljak">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Ponedeljak</mat-header-cell>
+        <mat-cell *matCellDef="let row">Vreme:{{row.ponedeljak}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="utorak">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Utorak</mat-header-cell>
+          <mat-cell *matCellDef="let row">Vreme:{{row.utorak}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="sreda">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Sreda</mat-header-cell>
+            <mat-cell *matCellDef="let row">Vreme:{{row.sreda}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="cetvrtak">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Cetvrtak</mat-header-cell>
+              <mat-cell *matCellDef="let row">Vreme:{{row.cetvrtak}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="petak">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Petak</mat-header-cell>
+                <mat-cell *matCellDef="let row">Vreme:{{row.petak}}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="subota">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Subota</mat-header-cell>
+                  <mat-cell *matCellDef="let row">Vreme:{{row.subota}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="nedelja">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Nedelja</mat-header-cell>
+                    <mat-cell *matCellDef="let row">Vreme:{{row.nedelja}}</mat-cell>
+                  </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+    [length]="dataSource.data.length"
+    [pageIndex]="0"
+    [pageSize]="50"
+    [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+</div>
